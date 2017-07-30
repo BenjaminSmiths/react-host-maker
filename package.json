@@ -50,9 +50,9 @@
   },
   "scripts": {
     "start": "concurrently \"npm run client\" \"npm run server\"",
-    "server": "node_modules/typescript/bin/tsc && node build/server.js",
+    "server": "./node_modules/typescript/bin/tsc && node build/server.js",
     "client": "node scripts/start.js",
-    "build": "node scripts/build.js && node_modules/typescript/bin/tsc",
+    "build": "node scripts/build.js && ./node_modules/typescript/bin/tsc",
     "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {
