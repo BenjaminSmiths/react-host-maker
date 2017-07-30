@@ -1,1 +1,1 @@
-web: npm run prodserver
+web: npm run heroku
