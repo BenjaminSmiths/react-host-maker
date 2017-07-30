@@ -58,7 +58,7 @@
     "client": "node scripts/start.js",
     "build": "node scripts/build.js && tsc",
     "test": "node scripts/test.js --env=jsdom",
-    "heroku": "npm run build && node build/server.js",
+    "prodserver": "npm run build && node build/server.js",
   },
   "jest": {
     "collectCoverageFrom": [
