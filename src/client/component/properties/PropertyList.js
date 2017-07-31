@@ -1,26 +1,28 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropertyItem from './PropertyItem';
+import {fetchProperties} from '../../store/properties/actions';
+import {connect} from 'react-redux';
 
-const PropertyList = () => {
+class PropertyList extends Component {
 
-    let property = {
-        'owner': 'carlos',
-        'address': {
-            'line1': 'Flat 5',
-            'line4': '7 Westbourne Terrace',
-            'postCode': 'W2 3UL',
-            'city': 'London',
-            'country': 'U.K.'
-        },
-        'incomeGenerated': 2000.34,
-        'image': 'property1.jpg'
-    };
+    componentDidMount() {
+        this.props.fetchProperties();
+    }
 
-    return (
-        <div name="PropertyList">
-            <PropertyItem property={property}></PropertyItem>
-        </div>
-    )
-};
+    render() {
+        return (
+            <div name="PropertyList">
+                {
+                    this.props.properties.map((p, i) => <PropertyItem property={p} key={i}/>)
+                }
+            </div>
+        )
+    }
+}
 
-export default PropertyList;
+export default connect(
+    state => ({
+        properties: state.properties
+    }),
+    {fetchProperties}
+)(PropertyList);

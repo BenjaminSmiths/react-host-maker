@@ -1,8 +1,11 @@
 import * as express from 'express';
 import {Router} from 'express';
 import {json} from './models/PropertiesModel';
+import * as cors from 'cors';
 
 const app = express();
+app.use(cors());
+
 app.set("port", process.env.PORT || 4001);
 
 if (process.env.NODE_ENV === "production") {

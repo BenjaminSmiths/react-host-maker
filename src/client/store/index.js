@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import properties from './propertiesReducer';
+import properties from './properties/propertiesReducer';
 
 const rootReducer = combineReducers({
     properties
