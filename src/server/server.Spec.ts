@@ -23,7 +23,7 @@ describe('Server', () => {
             });
     });
 
-    it('should get the status page', (done) => {
+    it('should get a list of properties as json', (done) => {
         // Given
         server
             .get('/api/properties')
