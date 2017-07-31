@@ -44,6 +44,7 @@
     "postcss-flexbugs-fixes": "3.0.0",
     "postcss-loader": "2.0.6",
     "promise": "7.1.1",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dev-utils": "^3.0.2",
     "react-dom": "^15.6.1",
@@ -69,7 +70,8 @@
     "server": "tsc && node build/server.js",
     "client": "node scripts/start.js",
     "build": "node scripts/build.js && tsc",
-    "test": "npm run test-server && node scripts/test.js --env=jsdom",
+    "test": "node scripts/test.js --env=jsdom",
+    "test-all": "npm run test-server && node scripts/test.js --env=jsdom",
     "test-server": "tsc && node_modules/mocha/bin/mocha build/**/*.Spec.js",
     "heroku": "npm run build && node build/server.js"
   },
