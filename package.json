@@ -108,6 +108,7 @@
     "chai": "^4.1.0",
     "jest-cli": "^20.0.4",
     "mocha": "^3.4.2",
+    "react-test-renderer": "^15.6.1",
     "supertest": "^3.0.0"
   }
 }

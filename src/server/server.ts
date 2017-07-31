@@ -1,5 +1,6 @@
 import * as express from 'express';
 import {Router} from 'express';
+import {json} from './models/PropertiesModel';
 
 const app = express();
 app.set("port", process.env.PORT || 4001);
@@ -16,6 +17,9 @@ let router: Router;
 router = Router();
 router.route('/status').get((req, res) => {
     res.send('We are running 100%');
+});
+router.route('/properties').get((req, res) => {
+    res.json(json);
 });
 
 app.use('/api', router);

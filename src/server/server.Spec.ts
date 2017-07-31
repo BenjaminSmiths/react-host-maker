@@ -21,5 +21,20 @@ describe('Server', () => {
                 chai.expect(res.body.error).to.not.exist;
                 done();
             });
+    });
+
+    it('should get the status page', (done) => {
+        // Given
+        server
+            .get('/api/properties')
+            .expect("Content-type",/json/)
+            .expect(200)
+            .end(function(err,res){
+                // HTTP status should be 200
+                chai.expect(res.status).to.equal(200);
+                // Error key should be false.
+                chai.expect(res.body.error).to.not.exist;
+                done();
+            });
     })
 });
