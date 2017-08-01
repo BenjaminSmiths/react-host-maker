@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match the current snap 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="App-header"
+  >
+    <img
+      alt="logo"
+      className="App-logo"
+      src="logo.svg"
+    />
+    <h2>
+      Welcome to React
+    </h2>
+  </div>
+  <p
+    className="App-intro"
+  >
+    To get started, edit 
+    <code>
+      src/App.js
+    </code>
+     and save to reload.
+  </p>
+  <div
+    name="PropertyList"
+  >
+    <div>
+      <div
+        className="owner"
+      >
+        carlos
+      </div>
+      <div
+        className="address"
+      >
+        <div>
+          Flat 5
+        </div>
+        <div>
+          7 Westbourne Terrace
+        </div>
+        <div>
+          W2 3UL
+        </div>
+        <div>
+          London
+        </div>
+        <div>
+          U.K.
+        </div>
+      </div>
+      <div
+        className="income"
+      >
+        2000.34
+      </div>
+    </div>
+  </div>
+</div>
+`;

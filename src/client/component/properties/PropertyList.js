@@ -13,7 +13,7 @@ class PropertyList extends Component {
         return (
             <div name="PropertyList">
                 {
-                    this.props.properties.map((p, i) => <PropertyItem property={p} key={i}/>)
+                    this.props.properties && this.props.properties.map((p, i) => <PropertyItem property={p} key={i}/>)
                 }
             </div>
         )

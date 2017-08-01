@@ -21,7 +21,7 @@ export function fetchProperties() {
                 dispatch(fetchPropertiessSuccess(json));
             })
             .catch((error) => {
-                console.log('there was a problem', error);
+                console.log('Could not fetchProperties', error);
             });
     };
 }

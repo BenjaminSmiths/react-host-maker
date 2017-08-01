@@ -5,6 +5,10 @@ import * as uut from './actions';
 
 describe('store/properties/actions', () => {
 
+    beforeEach(() => {
+        jest.resetAllMocks();
+    });
+
     it('should return some properties', async () => {
         fetch.mockResponse(JSON.stringify({json: 'something' }));
 

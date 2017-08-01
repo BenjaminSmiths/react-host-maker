@@ -4,8 +4,27 @@ import App from './App';
 import renderer from 'react-test-renderer';
 import ReactTestUtils from 'react-dom/test-utils';
 import PropertyList from '../properties/PropertyList';
+jest.mock('react-redux', () => require('react-redux-mock'));
+import { __setState } from 'react-redux';
 
 describe('App', () => {
+
+    beforeEach(() => {
+        __setState({
+            properties: [{
+                'owner': 'carlos',
+                'address': {
+                    'line1': 'Flat 5',
+                    'line4': '7 Westbourne Terrace',
+                    'postCode': 'W2 3UL',
+                    'city': 'London',
+                    'country': 'U.K.'
+                },
+                'incomeGenerated': 2000.34,
+                'image': 'property1.jpg'
+            }]
+        });
+    });
 
     it('renders without crashing', () => {
         const div = document.createElement('div');
