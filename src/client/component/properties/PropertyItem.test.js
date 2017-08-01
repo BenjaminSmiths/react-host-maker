@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropertyItem from './PropertyItem';
 import ReactTestUtils from 'react-dom/test-utils';
+import renderer from 'react-test-renderer';
 
 describe('PropertyItem', () => {
     let property = {
@@ -32,7 +33,7 @@ describe('PropertyItem', () => {
             component, 'owner'
         );
 
-        expect(ReactDOM.findDOMNode(owner).textContent).toEqual("carlos");
+        expect(ReactDOM.findDOMNode(owner).textContent).toEqual('Carlos');
     });
 
     it('should find the income amount', () => {
@@ -45,19 +46,71 @@ describe('PropertyItem', () => {
             component, 'income'
         );
 
-        expect(ReactDOM.findDOMNode(income).textContent).toEqual("2000.34");
+        expect(ReactDOM.findDOMNode(income).textContent).toEqual('£2, 000.34');
     });
 
-    it('should find the address amount', () => {
+    describe('Format Address', () => {
 
-        let component = ReactTestUtils.renderIntoDocument(
-            <PropertyItem property={property}/>
-        );
+        it('should find the address block', () => {
 
-        let address = ReactTestUtils.findRenderedDOMComponentWithClass(
-            component, 'address'
-        );
+            let component = ReactTestUtils.renderIntoDocument(
+                <PropertyItem property={property}/>
+            );
 
-        expect(ReactDOM.findDOMNode(address).textContent).toEqual("Flat 57 Westbourne TerraceW2 3ULLondonU.K.");
-    });
+            let address = ReactTestUtils.findRenderedDOMComponentWithClass(
+                component, 'address'
+            );
+
+            expect(ReactDOM.findDOMNode(address)).toBeDefined()
+        });
+
+        it('should match the property missing line2', () => {
+            const component = renderer.create(<PropertyItem property={{
+                'owner': 'carlos',
+                'address': {
+                    'line1': 'Flat 5',
+                    'line4': '7 Westbourne Terrace',
+                    'postCode': 'W2 3UL',
+                    'city': 'London',
+                    'country': 'U.K.'
+                },
+                'incomeGenerated': 2000.34
+            }}/>);
+            expect(component.toJSON()).toMatchSnapshot();
+        });
+
+        it('should match the property with all lines', () => {
+            const component = renderer.create(<PropertyItem property={{
+                'owner': 'ankur',
+                'address': {
+                    'line1': '4',
+                    'line2': 'Tower Mansions',
+                    'line3': 'Off Station road',
+                    'line4': '86-87 Grange Road',
+                    'postCode': 'SE1 3BW',
+                    'city': 'London',
+                    'country': 'U.K.'
+                },
+                'incomeGenerated': 1000
+            }}/>);
+            expect(component.toJSON()).toMatchSnapshot();
+        });
+
+        it('should match the property line3 missing', () => {
+            const component = renderer.create(<PropertyItem property={{
+                'owner': 'elaine',
+                'address': {
+                    'line1': '4',
+                    'line2': '332b',
+                    'line4': 'Goswell Road',
+                    'postCode': 'EC1V 7LQ',
+                    'city': 'London',
+                    'country': 'U.K.'
+                },
+                'incomeGenerated': 1200
+            }}/>);
+            expect(component.toJSON()).toMatchSnapshot();
+        });
+
+    })
 });

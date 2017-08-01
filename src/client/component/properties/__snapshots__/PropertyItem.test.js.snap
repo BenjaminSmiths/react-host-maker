@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PropertyItem Format Address should match the property line3 missing 1`] = `
+<div>
+  <div
+    className="owner"
+  >
+    Elaine
+  </div>
+  <div
+    className="address"
+  >
+    <div>
+      4, 332b
+    </div>
+    <div>
+      Goswell Road
+    </div>
+    <div>
+      London, U.K.
+    </div>
+    <div>
+      EC1V 7LQ
+    </div>
+  </div>
+  <div
+    className="income"
+  >
+    £
+    1, 200
+  </div>
+</div>
+`;
+
+exports[`PropertyItem Format Address should match the property missing line2 1`] = `
+<div>
+  <div
+    className="owner"
+  >
+    Carlos
+  </div>
+  <div
+    className="address"
+  >
+    <div>
+      Flat 5
+    </div>
+    <div>
+      7 Westbourne Terrace
+    </div>
+    <div>
+      London, U.K.
+    </div>
+    <div>
+      W2 3UL
+    </div>
+  </div>
+  <div
+    className="income"
+  >
+    £
+    2, 000.34
+  </div>
+</div>
+`;
+
+exports[`PropertyItem Format Address should match the property with all lines 1`] = `
+<div>
+  <div
+    className="owner"
+  >
+    Ankur
+  </div>
+  <div
+    className="address"
+  >
+    <div>
+      4, Tower Mansions
+    </div>
+    <div>
+      Off Station road
+    </div>
+    <div>
+      86-87 Grange Road
+    </div>
+    <div>
+      London, U.K.
+    </div>
+    <div>
+      SE1 3BW
+    </div>
+  </div>
+  <div
+    className="income"
+  >
+    £
+    1, 000
+  </div>
+</div>
+`;

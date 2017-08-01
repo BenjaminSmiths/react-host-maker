@@ -32,7 +32,7 @@ exports[`App should match the current snap 1`] = `
       <div
         className="owner"
       >
-        carlos
+        Carlos
       </div>
       <div
         className="address"
@@ -44,19 +44,17 @@ exports[`App should match the current snap 1`] = `
           7 Westbourne Terrace
         </div>
         <div>
+          London, U.K.
+        </div>
+        <div>
           W2 3UL
-        </div>
-        <div>
-          London
-        </div>
-        <div>
-          U.K.
         </div>
       </div>
       <div
         className="income"
       >
-        2000.34
+        £
+        2, 000.34
       </div>
     </div>
   </div>
