@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropertyItem from './PropertyItem';
 import {fetchProperties} from '../../store/properties/actions';
 import {connect} from 'react-redux';
+import './style.css';
 
 class PropertyList extends Component {
 
@@ -11,7 +12,10 @@ class PropertyList extends Component {
 
     render() {
         return (
-            <div name="PropertyList">
+            <div name="PropertyList" className="propertyList container-fluid">
+                <div className="container Title-header">
+                    <h3>Your current listing's</h3>
+                </div>
                 {
                     this.props.properties && this.props.properties.map((p, i) => <PropertyItem property={p} key={i}/>)
                 }

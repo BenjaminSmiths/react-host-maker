@@ -13,48 +13,76 @@ exports[`App should match the current snap 1`] = `
       src="logo.svg"
     />
     <h2>
-      Welcome to React
+      Welcome to HostMaker
     </h2>
   </div>
-  <p
-    className="App-intro"
-  >
-    To get started, edit 
-    <code>
-      src/App.js
-    </code>
-     and save to reload.
-  </p>
   <div
+    className="propertyList container-fluid"
     name="PropertyList"
   >
-    <div>
+    <div
+      className="container Title-header"
+    >
+      <h3>
+        Your current listing's
+      </h3>
+    </div>
+    <div
+      className="container propertyItem"
+    >
       <div
-        className="owner"
+        className="panel"
       >
-        Carlos
-      </div>
-      <div
-        className="address"
-      >
-        <div>
-          Flat 5
+        <div
+          className="row headings"
+        >
+          <div
+            className="col-xs-3"
+          >
+            Owner
+          </div>
+          <div
+            className="col-xs-5"
+          >
+            Address
+          </div>
+          <div
+            className="col-xs-3"
+          >
+            Income Generated
+          </div>
         </div>
-        <div>
-          7 Westbourne Terrace
+        <div
+          className="row details"
+        >
+          <div
+            className="owner col-xs-3"
+          >
+            Carlos
+          </div>
+          <div
+            className="address col-xs-5"
+          >
+            <div>
+              Flat 5
+            </div>
+            <div>
+              7 Westbourne Terrace
+            </div>
+            <div>
+              London, U.K.
+            </div>
+            <div>
+              W2 3UL
+            </div>
+          </div>
+          <div
+            className="income col-xs-4"
+          >
+            £
+            2, 000.34
+          </div>
         </div>
-        <div>
-          London, U.K.
-        </div>
-        <div>
-          W2 3UL
-        </div>
-      </div>
-      <div
-        className="income"
-      >
-        £
-        2, 000.34
       </div>
     </div>
   </div>

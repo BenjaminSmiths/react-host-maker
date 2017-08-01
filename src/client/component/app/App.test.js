@@ -40,7 +40,7 @@ describe('App', () => {
             component, 'h2'
         );
 
-        expect(ReactDOM.findDOMNode(h2).textContent).toEqual("Welcome to React");
+        expect(ReactDOM.findDOMNode(h2).textContent).toEqual("Welcome to HostMaker");
     });
 
     it('should match the current snap', () => {

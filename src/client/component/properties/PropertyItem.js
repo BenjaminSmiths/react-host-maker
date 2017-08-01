@@ -38,14 +38,25 @@ class PropertyItem extends Component {
         let {property} = this.props;
 
         return (
-            <div>
-                <div className="owner">{FormatUtils.capFirst(property.owner)}</div>
-                <div className="address">
-                    {
-                        FormatUtils.buildAddress(property.address)
-                    }
+            <div className="container propertyItem">
+                <div className="panel">
+                    <div className="row headings">
+                        <div className="col-xs-3">
+                            Owner
+                        </div>
+                        <div className="col-xs-5">Address</div>
+                        <div className="col-xs-3">Income Generated</div>
+                    </div>
+                    <div className="row details">
+                        <div className="owner col-xs-3">{FormatUtils.capFirst(property.owner)}</div>
+                        <div className="address col-xs-5">
+                            {
+                                FormatUtils.buildAddress(property.address)
+                            }
+                        </div>
+                        <div className="income col-xs-4">&pound;{FormatUtils.formatIncome(property.incomeGenerated)}</div>
+                    </div>
                 </div>
-                <div className="income">&pound;{FormatUtils.formatIncome(property.incomeGenerated)}</div>
             </div>
         )
     }
