@@ -73,13 +73,13 @@
   },
   "scripts": {
     "start": "concurrently \"npm run client\" \"npm run server\"",
-    "server": "tsc && node build/server.js",
+    "server": "tsc && node build/server/server.js",
     "client": "node scripts/start.js",
     "build": "node scripts/build.js && tsc",
     "test": "node scripts/test.js --env=jsdom",
     "test-all": "npm run test-server && node scripts/test.js --env=jsdom",
     "test-server": "tsc && node_modules/mocha/bin/mocha build/**/*.Spec.js",
-    "heroku": "npm run build && node build/server.js"
+    "heroku": "npm run build && node build/server/server.js"
   },
   "jest": {
     "collectCoverageFrom": [
