@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropertyItem from './PropertyItem';
-import {fetchProperties} from '../../store/properties/actions';
+import {fetchProperties} from '../../store/properties/propertiesActions';
 import {connect} from 'react-redux';
 import './style.css';
 

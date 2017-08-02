@@ -79,8 +79,7 @@ exports[`App should match the current snap 1`] = `
           <div
             className="income col-xs-4"
           >
-            £
-            2, 000.34
+            £2, 000.34
           </div>
         </div>
       </div>

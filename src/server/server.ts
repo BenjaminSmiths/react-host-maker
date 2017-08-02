@@ -29,7 +29,6 @@ if (process.env.NODE_ENV === 'production') {
     });
     app.get(/^(.+)$/, (req: Request, res: Response) => {
         let resolved = path.resolve(__dirname + '/..' + req.path);
-        console.log(resolved);
         res.sendFile(resolved);
     });
 }
