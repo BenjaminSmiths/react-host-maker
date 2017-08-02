@@ -9,7 +9,7 @@ function fetchPropertiesSuccess(properties) {
 }
 
 // not going to happen in this demo as its hardcoded but
-// always good to have.
+// always good to have a fail state we can test.
 function fetchPropertiesFailed(error) {
     return {
         type: types.PROPERTIES_FAILED,
@@ -31,8 +31,7 @@ const FormatUtils = {
         return [...house, ...streets, ...other];
     },
 
-    // to be replaced with a proper multi currency format
-    // but it will do for now.
+    // TODO: to be replaced with a proper multi currency formatter but it will do for now.
     formatIncome: (x, country) => {
         x = x.toString();
         let pattern = /(-?\d+)(\d{3})/;
@@ -55,12 +54,12 @@ function transformDateFormat(properties) {
 
 export function fetchProperties() {
     const url = config.get(REST_API) + '/api/properties';
-    console.log(url);
+    // console.log(url);
     return (dispatch) => {
         return fetch(url)
             .then(response => {
                 if (response.status >= 400) {
-                    throw new Error("Bad response from server");
+                    return Promise.reject(new Error("Bad response from server"));
                 }
                 return response.json();
             })
@@ -69,8 +68,8 @@ export function fetchProperties() {
                 dispatch(fetchPropertiesSuccess(propertyList));
             })
             .catch((error) => {
-                console.error('Could not fetchProperties', error);
-                dispatch(fetchPropertiesFailed(error));
+                // console.error('Could not fetchProperties', error);
+                dispatch(fetchPropertiesFailed(error ? error.message : 'Unknown Error'));
             });
     };
 }

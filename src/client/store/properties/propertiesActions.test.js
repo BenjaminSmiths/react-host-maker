@@ -60,4 +60,17 @@ describe('store/properties/actions', () => {
         expect(dispatches[0].isPlainObject()).toBe(true);
         expect(dispatches[0].getAction()).toEqual({ type: types.PROPERTIES_SUCCESS, properties: expected});
     });
+
+    it('should return error 404', async () => {
+        fetch.mockReject();
+
+        const dispatches = await Thunk(uut.fetchProperties).execute();
+
+        expect(dispatches.length).toBe(1);
+        expect(dispatches[0].isPlainObject()).toBe(true);
+        expect(dispatches[0].getAction()).toEqual({
+            type: types.PROPERTIES_FAILED,
+            error: 'Unknown Error'
+        });
+    });
 });

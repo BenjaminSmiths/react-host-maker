@@ -18,7 +18,7 @@ function searchFailed(error) {
 
 export const searchGoogle = (address) => {
     const url = config.get(GOOGLE_URI).replace('${address}', address).replace('${key}', config.get(GOOGLE_KEY));
-    console.log(url);
+    // console.log(url);
     return (dispatch) => {
         return fetch(url)
             .then(response => {
@@ -31,8 +31,12 @@ export const searchGoogle = (address) => {
                 if (json.results.length === 0 || json.status !== 'OK') {
                     return Promise.reject(new Error(json.status));
                 }
-
-                dispatch(searchSuccess(json.results[0]));
+                let result = json.results[0]; // TODO: definitely want to show the user more options.
+                dispatch(searchSuccess({
+                    formattedAddress: result.formatted_address,
+                    lat: result.geometry.location.lat,
+                    lng: result.geometry.location.lng
+                }));
             })
             .catch((error) => {
                 // console.error('Could not find search results', error);
