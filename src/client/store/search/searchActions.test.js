@@ -35,7 +35,7 @@ describe('store/search/actions', () => {
         expect(dispatches[0].isPlainObject()).toBe(true);
         expect(dispatches[0].getAction('London')).toEqual({
             type: types.SEARCH_GOOGLE_SUCCESS,
-            location: {"formattedAddress": "London, UK", "lat": 51.5073509, "lng": -0.1277583, "serviceable": true }
+            search: {"formattedAddress": "London, UK", "lat": 51.5073509, "lng": -0.1277583, "serviceable": true }
         });
     });
 

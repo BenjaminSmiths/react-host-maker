@@ -10,12 +10,12 @@ describe('Search', () => {
 
     beforeEach(() => {
         __setState({
-            seatch: [{
+            search: {
                 formatedAddress: 'We Live here',
                 lat: 321,
                 lng: 123,
                 serviceable: true
-            }]
+            }
         });
     });
 

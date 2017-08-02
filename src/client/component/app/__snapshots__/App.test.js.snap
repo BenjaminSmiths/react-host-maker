@@ -85,5 +85,33 @@ exports[`App should match the current snap 1`] = `
       </div>
     </div>
   </div>
+  <div
+    className="row search"
+  >
+    <div
+      className="col-lg-offset-1 col-lg-5 search-panel"
+    >
+      <h3>
+        Search Address
+      </h3>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </form>
+      <div
+        className="searchedAddress notFound"
+      >
+        <p />
+        <p>
+          Unfortunately, we can not service that property at the moment
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 `;
