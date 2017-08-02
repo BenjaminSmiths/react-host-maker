@@ -5,7 +5,7 @@ const configsMap = new Map();
 export const REST_API = 'restApi';
 
 configsMap.set('production', {
-    restApi: 'https://react-host-maker.herokuapp.com:4001'
+    restApi: ''
 });
 
 configsMap.set('development', {
