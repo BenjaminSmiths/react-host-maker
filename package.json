@@ -79,7 +79,7 @@
     "test": "node scripts/test.js --env=jsdom",
     "test-all": "npm run test-server && node scripts/test.js --env=jsdom",
     "test-server": "tsc && node_modules/mocha/bin/mocha build/**/*.Spec.js",
-    "heroku": "npm run build && node build/server/server.js"
+    "heroku": "npm run build && concurrently \"node build/server/server.js\" \"node build/client.js\""
   },
   "jest": {
     "collectCoverageFrom": [
