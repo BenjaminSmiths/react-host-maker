@@ -17,6 +17,11 @@
     box-shadow: 2px 3px 14px -3px rgba(0,0,0,0.2);
 }
 
+.search input {
+    border: 1px solid #444;
+    border-radius: 5px;
+}
+
 .search-panel .searchedAddress {
     margin: 15px auto 11px auto;
     padding: 20px;
