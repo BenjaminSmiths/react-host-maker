@@ -32,10 +32,12 @@ export const searchGoogle = (address) => {
                     return Promise.reject(new Error(json.status));
                 }
                 let result = json.results[0]; // TODO: definitely want to show the user more options.
+                let lat = result.geometry.location.lat;
+                let lng = result.geometry.location.lng;
+                let distance = getDistance(serviceArea, {lat, lng});
                 dispatch(searchSuccess({
-                    formattedAddress: result.formatted_address,
-                    lat: result.geometry.location.lat,
-                    lng: result.geometry.location.lng
+                    formattedAddress: result.formatted_address, lat, lng,
+                    serviceable: distance <= (serviceArea.radius / 1000)
                 }));
             })
             .catch((error) => {
@@ -43,4 +45,27 @@ export const searchGoogle = (address) => {
                 dispatch(searchFailed(error ? error.message : 'Unknown Error'));
             });
     };
+};
+
+function getDistance(coords1, coords2) {
+
+    function toRad(x) {
+        return x * Math.PI / 180;
+    }
+
+    let dLat = toRad(coords2.lat - coords1.lat);
+    let dLon = toRad(coords2.lng - coords1.lng);
+
+    let a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(toRad(coords1.lat)) *
+        Math.cos(toRad(coords2.lat)) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+    return 12742 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+const serviceArea = {
+    lat: 51.5073835,
+    lng: -0.1277801,
+    radius: 20000
 };
