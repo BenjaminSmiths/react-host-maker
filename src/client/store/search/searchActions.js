@@ -20,22 +20,18 @@ export const searchGoogle = (searchInput) => {
     // TODO: should sanitize user input for security {searchInput}
     const url = config.get(GOOGLE_URI).replace('{address}', searchInput).replace('{key}', config.get(GOOGLE_KEY));
     return (dispatch) => {
-    console.log('fetch', url);
         return fetch(url)
             .then(response => {
-                console.log('we got response', response);
                 if (response.status >= 400) {
                     Promise.reject(new Error("Bad response from server"));
                 }
                 return response.json();
             })
             .then((json) => {
-                console.log('we got json', json);
                 if (json.results.length === 0 || json.status !== 'OK') {
                     return Promise.reject(new Error(json.status));
                 }
                 let result = json.results[0]; // TODO: definitely want to show the user more options.
-                console.log('we got result', result);
                 let lat = result.geometry.location.lat;
                 let lng = result.geometry.location.lng;
                 let distance = getDistance(serviceArea, {lat, lng});
@@ -45,7 +41,6 @@ export const searchGoogle = (searchInput) => {
                 }));
             })
             .catch((error) => {
-                console.error('Could not find search results', error);
                 dispatch(searchFailed(error ? error.message : 'Unknown Error'));
             });
     };

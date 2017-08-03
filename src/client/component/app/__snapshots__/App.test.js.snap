@@ -4,20 +4,32 @@ exports[`App should match the current snap 1`] = `
 <div
   className="App"
 >
-  <div
-    className="App-header"
-  >
-    <img
-      alt="logo"
-      className="App-logo"
-      src="logo.svg"
-    />
-    <h2>
-      Welcome to HostMaker
-    </h2>
+  <div>
+    <div
+      className="NavHeader"
+    >
+      <div
+        className="headerLogo"
+      >
+        <img
+          alt="logo"
+          className="App-logo"
+          src="logo.svg"
+        />
+      </div>
+      <div
+        className="fixedHeader"
+      >
+        <h2
+          className="titleText"
+        >
+          Welcome to HostMaker
+        </h2>
+      </div>
+    </div>
   </div>
   <div
-    className="propertyList container-fluid"
+    className="propertyList container-fluid push"
     name="PropertyList"
   >
     <div
@@ -37,17 +49,17 @@ exports[`App should match the current snap 1`] = `
           className="row headings"
         >
           <div
-            className="col-xs-3"
+            className="col-lg-offset-1 col-md-offset-1 col-lg-2 col-md-2  col-sm-3 col-xs-3"
           >
             Owner
           </div>
           <div
-            className="col-xs-5"
+            className="col-lg-5 col-md-5  col-sm-5  col-xs-5"
           >
             Address
           </div>
           <div
-            className="col-xs-3"
+            className="col-lg-4 col-md-4 col-sm-3  col-xs-3"
           >
             Income Generated
           </div>
@@ -56,12 +68,12 @@ exports[`App should match the current snap 1`] = `
           className="row details"
         >
           <div
-            className="owner col-xs-3"
+            className="owner col-lg-offset-1 col-md-offset-1 col-lg-2  col-md-2 col-sm-3  col-xs-3"
           >
             Carlos
           </div>
           <div
-            className="address col-xs-5"
+            className="address col-lg-5  col-md-5 col-sm-5  col-xs-5"
           >
             <div>
               Flat 5
@@ -77,7 +89,7 @@ exports[`App should match the current snap 1`] = `
             </div>
           </div>
           <div
-            className="income col-xs-4"
+            className="income col-lg-4  col-md-4 col-sm-3  col-xs-3"
           >
             £2, 000.34
           </div>
@@ -104,11 +116,10 @@ exports[`App should match the current snap 1`] = `
         />
       </form>
       <div
-        className="searchedAddress notFound"
+        className="searchedAddress start"
       >
-        <p />
         <p>
-          Unfortunately, we can not service that property at the moment
+          Try an address or postcode
         </p>
       </div>
     </div>

@@ -33,21 +33,6 @@ describe('App', () => {
         ReactDOM.render(<App />, div);
     });
 
-    it('should say welcome', () => {
-        // Given
-        let component = ReactTestUtils.renderIntoDocument(
-            <App />
-        );
-
-        // When
-        let h2 = ReactTestUtils.findRenderedDOMComponentWithTag(
-            component, 'h2'
-        );
-
-        // Then
-        expect(ReactDOM.findDOMNode(h2).textContent).toEqual("Welcome to HostMaker");
-    });
-
     it('should match the current snap', () => {
 
         // When

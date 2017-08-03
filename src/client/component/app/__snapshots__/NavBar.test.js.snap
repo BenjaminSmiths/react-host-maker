@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar should match the current snap 1`] = `
+<div>
+  <div
+    className="NavHeader"
+  >
+    <div
+      className="headerLogo"
+    >
+      <img
+        alt="logo"
+        className="App-logo"
+        src="logo.svg"
+      />
+    </div>
+    <div
+      className="fixedHeader"
+    >
+      <h2
+        className="titleText"
+      >
+        Welcome to HostMaker
+      </h2>
+    </div>
+  </div>
+</div>
+`;

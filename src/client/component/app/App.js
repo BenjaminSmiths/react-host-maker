@@ -1,22 +1,14 @@
-import React, {Component} from 'react';
-import logo from '../../images/logo.svg';
+import React from 'react';
 import PropertyList from '../properties/PropertyList';
-import './App.css';
 import Search from '../search/Search';
+import NavBar from './NavBar';
+import './App.css';
 
-class App extends Component {
-    render() {
-        return (
-            <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h2>Welcome to HostMaker</h2>
-                </div>
-                <PropertyList />
-                <Search />
-            </div>
-        );
-    }
-}
+const App = () =>
+    <div className="App">
+        <NavBar />
+        <PropertyList />
+        <Search />
+    </div>;
 
 export default App;

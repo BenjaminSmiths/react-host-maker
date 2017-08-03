@@ -12,7 +12,7 @@ class PropertyList extends Component {
 
     render() {
         return (
-            <div name="PropertyList" className="propertyList container-fluid">
+            <div name="PropertyList" className="propertyList container-fluid push">
                 <div className="container Title-header">
                     <h3>Your current listing's</h3>
                 </div>

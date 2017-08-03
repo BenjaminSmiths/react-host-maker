@@ -54,7 +54,6 @@ function transformDateFormat(properties) {
 
 export function fetchProperties() {
     const url = config.get(REST_API) + '/api/properties';
-    // console.log(url);
     return (dispatch) => {
         return fetch(url)
             .then(response => {
@@ -68,7 +67,6 @@ export function fetchProperties() {
                 dispatch(fetchPropertiesSuccess(propertyList));
             })
             .catch((error) => {
-                // console.error('Could not fetchProperties', error);
                 dispatch(fetchPropertiesFailed(error ? error.message : 'Unknown Error'));
             });
     };
