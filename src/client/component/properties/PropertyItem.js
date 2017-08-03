@@ -22,7 +22,7 @@ const PropertyItem = ({property}) =>
                                 })
                             }
                         </div>
-                        <div className="income col-lg-4  col-md-4 col-sm-3  col-xs-3">{property.incomeGenerated}</div>
+                        <div className="income col-lg-4  col-md-4 col-sm-3  col-xs-4">{property.incomeGenerated}</div>
                     </div>
                 </div>
             </div>;
