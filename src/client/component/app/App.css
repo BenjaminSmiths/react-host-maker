@@ -25,9 +25,9 @@
 .fix .fixedHeader {
   background-color: #444;
   position: fixed;
-  width: 101%;
+  width: 100%;
   top: 0;
-  padding: 0;
+  padding-top: 30px;
   height: 80px;
   z-index: 1;
   -webkit-box-shadow: 0 10px 14px -4px rgba(0, 0, 0, 0.43);
