@@ -1,5 +1,4 @@
 
-
 const configsMap = new Map();
 
 export const REST_API = 'restApi';
@@ -25,9 +24,7 @@ configsMap.set('test', {
 });
 
 const config = {
-    get: (prop) => {
-        return configsMap.get(process.env.NODE_ENV)[prop];
-    }
+    get: (prop) => configsMap.get(process.env.NODE_ENV)[prop]
 };
 
 export default config;

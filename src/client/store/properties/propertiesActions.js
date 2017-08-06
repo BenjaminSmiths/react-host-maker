@@ -1,5 +1,5 @@
-import * as types from "./propertiesActionTypes";
 import config, {REST_API} from '../../services/configService';
+import * as types from './propertiesActionTypes';
 
 function fetchPropertiesSuccess(properties) {
     return {
@@ -19,55 +19,52 @@ function fetchPropertiesFailed(error) {
 
 const FormatUtils = {
 
-    capFirst: (name) => {
-        return name.charAt(0).toUpperCase() + name.slice(1);
-    },
+    capFirst: (name) => name.charAt(0).toUpperCase() + name.slice(1),
 
     buildAddress: ({line1, line2, line3, line4, city, country, postCode}) => {
-        let house = !line2 ? [line1] : [`${line1}, ${line2}`];
-        let streets = [line3, line4].filter((l) => !!l);
-        let other = [`${city}, ${country}`, postCode];
+        const house = !line2 ? [line1] : [`${line1}, ${line2}`];
+        const streets = [line3, line4].filter((l) => !!l);
+        const other = [`${city}, ${country}`, postCode];
 
         return [...house, ...streets, ...other];
     },
 
     // TODO: to be replaced with a proper multi currency formatter but it will do for now.
-    formatIncome: (x, country) => {
-        x = x.toString();
-        let pattern = /(-?\d+)(\d{3})/;
-        while (pattern.test(x)) {
-            x = x.replace(pattern, "$1, $2");
+    formatIncome: (number) => {
+        let price = number.toString();
+        const pattern = /(-?\d+)(\d{3})/;
+        while (pattern.test(price)) {
+            price = price.replace(pattern, '$1, $2');
         }
-        return '£' + x;
+        return `£ ${price}`;
     }
 };
 
 function transformDateFormat(properties) {
     return properties.map((property) => {
-        return {
+        const formatted = {
             owner: FormatUtils.capFirst(property.owner),
             incomeGenerated: FormatUtils.formatIncome(property.incomeGenerated, 'GBP'),
             address: FormatUtils.buildAddress(property.address)
-        }
+        };
+        return formatted;
     });
 }
 
-export function fetchProperties() {
-    const url = config.get(REST_API) + '/api/properties';
-    return (dispatch) => {
-        return fetch(url)
-            .then(response => {
-                if (response.status >= 400) {
-                    return Promise.reject(new Error("Bad response from server"));
-                }
-                return response.json();
-            })
-            .then(transformDateFormat)
-            .then((propertyList) => {
-                dispatch(fetchPropertiesSuccess(propertyList));
-            })
-            .catch((error) => {
-                dispatch(fetchPropertiesFailed(error ? error.message : 'Unknown Error'));
-            });
-    };
+export default function fetchProperties() {
+    const url = `${config.get(REST_API)}/api/properties`;
+    return (dispatch) => fetch(url)
+        .then(response => {
+            if (response.status >= 400) {
+                return Promise.reject(new Error('Bad response from server'));
+            }
+            return response.json();
+        })
+        .then(transformDateFormat)
+        .then((propertyList) => {
+            dispatch(fetchPropertiesSuccess(propertyList));
+        })
+        .catch((error) => {
+            dispatch(fetchPropertiesFailed(error ? error.message : 'Unknown Error'));
+        });
 }

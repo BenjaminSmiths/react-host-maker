@@ -1,8 +1,8 @@
 import React from 'react';
 import PropertyList from '../properties/PropertyList';
 import Search from '../search/Search';
-import NavBar from './NavBar';
 import './App.css';
+import NavBar from './NavBar';
 
 const App = () =>
     <div className="App">

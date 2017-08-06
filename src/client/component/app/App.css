@@ -22,17 +22,47 @@
   padding: 0;
   height: 153px;
 }
+.fixedHeader {
+  top: -80px;
+}
+.App-logo {
+  top: 80px;
+}
 .fix .fixedHeader {
   background-color: #444;
   position: fixed;
   width: 100%;
-  top: 0;
+  top: 0px;
   padding-top: 30px;
   height: 80px;
   z-index: 1;
   -webkit-box-shadow: 0 10px 14px -4px rgba(0, 0, 0, 0.43);
   -moz-box-shadow: 0 10px 14px -4px rgba(0, 0, 0, 0.43);
   box-shadow: 0 10px 14px -4px rgba(0, 0, 0, 0.43);
+  -webkit-transition: top 0.6s; /* Safari */
+  transition: top 0.6s;
+  transition-timing-function: cubic-bezier(0.6, -0.07, 0, 1.16);
+}
+
+.fix .App-logo {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  -webkit-transition: top 2s; /* Safari */
+  transition: top 2s;
+  transition-timing-function: cubic-bezier(0.03, 0.55, 0.01, 0.8);
+  -webkit-transition-delay: 1s; /* Safari */
+  transition-delay: 1s;
+}
+.fix .headerLogo {
+  height: 80px;
+  width:100px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  clip: rect(0px, 100px, 80px, 0px);
+  clip-path: inset(0px, 100px, 80px, 0px);
 }
 
 @keyframes App-logo-spin {

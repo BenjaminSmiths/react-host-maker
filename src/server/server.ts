@@ -1,25 +1,16 @@
 import * as express from 'express';
-import {NextFunction, Request, Response, Router} from 'express';
-import {json} from './models/PropertiesModel';
+import {NextFunction, Request, Response} from 'express';
 import * as cors from 'cors';
 import * as path from 'path';
+import {routes} from './routes';
 
 const app = express();
 app.set('port', process.env.PORT || 4001);
 
 app.use(cors());
 
-
-let router: Router;
-router = Router();
-router.route('/status').get((req: Request, res: Response) => {
-    res.send('We are running 100%');
-});
-router.route('/properties').get((req: Request, res: Response) => {
-    res.json(json);
-});
+const router = routes.create();
 app.use('/api', router);
-
 
 if (process.env.NODE_ENV === 'production') {
     // server the react app in production mode

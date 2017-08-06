@@ -1,5 +1,5 @@
-import * as types from './searchActionTypes';
 import Immutable from 'seamless-immutable';
+import * as types from './searchActionTypes';
 
 const initialState = Immutable({
     formattedAddress: '',

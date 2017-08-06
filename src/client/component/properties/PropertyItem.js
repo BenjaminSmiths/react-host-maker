@@ -15,11 +15,7 @@ const PropertyItem = ({property}) =>
                         <div className="owner col-lg-offset-1 col-md-offset-1 col-lg-2  col-md-2 col-sm-3  col-xs-3">{property.owner}</div>
                         <div className="address col-lg-5  col-md-5 col-sm-5  col-xs-5">
                             {
-                                property.address.map((val, key) => {
-                                    return (
-                                        <div key={key}>{val}</div>
-                                    );
-                                })
+                                property.address.map((val, key) => <div key={key.toString()}>{val}</div>)
                             }
                         </div>
                         <div className="income col-lg-4  col-md-4 col-sm-3  col-xs-4">{property.incomeGenerated}</div>
@@ -29,7 +25,11 @@ const PropertyItem = ({property}) =>
 
 
 PropertyItem.propTypes = {
-    property: PropTypes.object.isRequired
+    property: PropTypes.objectOf({
+        owner: PropTypes.string.isRequired,
+        incomeGenerated: PropTypes.string.isRequired,
+        address: PropTypes.arrayOf(PropTypes.string).isRequired
+    }).isRequired
 };
 
 export default PropertyItem;

@@ -1,5 +1,5 @@
-import * as types from './propertiesActionTypes';
 import Immutable from 'seamless-immutable';
+import * as types from './propertiesActionTypes';
 
 const initialState = Immutable([]);
 

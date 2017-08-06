@@ -1,29 +1,25 @@
-import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import React, {Component} from 'react';
 
 class SearchInput extends Component {
-
     state = {
         address: ''
     };
 
-    handleSearchInput(event) {
+    handleSearchInput = (event) => {
         this.setState({address: event.target.value});
-    }
+    };
 
-    handleSearchSubmit(e) {
+    handleSearchSubmit = (e) => {
         e.preventDefault();
         this.props.handelSubmit(this.state.address);
         this.setState({address: ''});
-    }
+    };
 
     render() {
         return (
-            <form onSubmit={this.handleSearchSubmit.bind(this)}>
-                <input type="text"
-                       value={this.state.address}
-                       onChange={this.handleSearchInput.bind(this)}
-                />
+            <form onSubmit={this.handleSearchSubmit}>
+                <input type="text" value={this.state.address} onChange={this.handleSearchInput} />
             </form>
         );
     }

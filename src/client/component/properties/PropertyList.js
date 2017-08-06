@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import PropertyItem from './PropertyItem';
-import {fetchProperties} from '../../store/properties/propertiesActions';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import fetchProperties from '../../store/properties/propertiesActions';
+import PropertyItem from './PropertyItem';
 import './style.css';
 
 class PropertyList extends Component {
-
     componentDidMount() {
         this.props.fetchProperties();
     }
@@ -14,15 +14,22 @@ class PropertyList extends Component {
         return (
             <div name="PropertyList" className="propertyList container-fluid push">
                 <div className="container Title-header">
-                    <h3>Your current listing's</h3>
+                    <h3>Your current listing&apos;s</h3>
                 </div>
                 {
-                    this.props.properties && this.props.properties.map((p, i) => <PropertyItem property={p} key={i}/>)
+                    this.props.properties && this.props.properties.map((property, index) =>
+                        <PropertyItem property={property} key={index.toString()} />
+                    )
                 }
             </div>
-        )
+        );
     }
 }
+
+PropertyList.propTypes = {
+    fetchProperties: PropTypes.func.isRequired,
+    properties: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 export default connect(
     state => ({
